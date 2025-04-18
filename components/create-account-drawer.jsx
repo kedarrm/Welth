@@ -71,12 +71,12 @@ const CreateAccountDrawer = ({ children }) => {
                         <div className='space-y-2'>
                             <label htmlFor="type" className='text-sm font-medium'>Account Type.</label>
                             <Select onValueChange={(value) => setValue("type", value)} defaultValue={watch("type")}>
-                                <SelectTrigger id='type' className="w-full">
+                                <SelectTrigger id='type' className="w-full cursor-pointer">
                                     <SelectValue placeholder="Select Type" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="CURRENT">Current</SelectItem>
-                                    <SelectItem value="SAVINGS">Savings</SelectItem>
+                                    <SelectItem value="CURRENT" className='cursor-pointer'>Current</SelectItem>
+                                    <SelectItem value="SAVINGS" className='cursor-pointer'>Savings</SelectItem>
 
                                 </SelectContent>
                             </Select>
@@ -120,18 +120,19 @@ const CreateAccountDrawer = ({ children }) => {
                                 id="isDefault"
                                 checked={watch("isDefault")}
                                 onCheckedChange={(checked) => setValue("isDefault", checked)}
+                                className='cursor-pointer'
                             />
                         </div>
 
                         <div className='flex gap-4 pt-4'>
                             <DrawerClose asChild>
-                                <Button type="button" variant="outline" className="flex-1">
+                                <Button type="button" variant="outline" className="flex-1 cursor-pointer">
                                     Cancel
                                 </Button>
                             </DrawerClose>
                             <Button
                                 type="submit"
-                                className="flex-1"
+                                className="flex-1 cursor-pointer"
                                 disabled={createAccountLoading}
                             >
                                 {createAccountLoading ? (

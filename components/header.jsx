@@ -13,13 +13,22 @@ const Header = async () => {
         <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
             <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
                 <Link href="/">
-                    <Image
-                        src={"/logo.png"}
-                        alt="Welth Logo"
-                        width={200}
-                        height={60}
-                        className="h-16 w-auto object-contain"
-                    />
+                <div className="flex items-center">
+                        <Image
+                            src={"/logo-sm.png"} // Mobile logo
+                            alt="Welth Logo"
+                            width={100}
+                            height={30}
+                            className="h-8 w-auto object-contain md:hidden" // Mobile screen size (hidden on md and up)
+                        />
+                        <Image
+                            src={"/logo.png"} // Desktop logo
+                            alt="Welth Logo"
+                            width={200}
+                            height={60}
+                            className="h-16 w-auto object-contain hidden md:inline" // Desktop screen size (hidden on mobile)
+                        />
+                    </div>
                 </Link>
 
                 {/* Navigation Links - Different for signed in/out users */}
@@ -40,8 +49,8 @@ const Header = async () => {
 
                 {/* Action Buttons */}
                 <div className="flex items-center space-x-4">
-                <ModeToggle />
                     <SignedIn>
+                <ModeToggle />
                         <Link
                             href="/dashboard"
                             className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
