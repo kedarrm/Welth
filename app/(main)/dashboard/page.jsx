@@ -8,6 +8,11 @@ import { getCurrentBudget } from '@/actions/budget'
 import { BudgetProgress } from '../account/_components/budget-progess'
 import DashboardOverview from './_components/transaction-overview'
 
+export const metadata = {
+    title: "Welth | Dashboard",
+    description: "One stop Finance Platform.",
+  };
+
 async function DashboardPage() {
     const accounts = await getUserAccounts()
     // console.log(accounts)

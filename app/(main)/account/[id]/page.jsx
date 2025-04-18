@@ -5,8 +5,15 @@ import TransactionTable from '../_components/transaction-table'
 import { BarLoader } from 'react-spinners'
 import AccountChart from '../_components/account-chart'
 
+export const metadata = {
+    title: "Welth | Accounts",
+    description: "One stop Finance Platform.",
+  };
+
 export default async function AccountPage({ params }) {
-    const accountData = await getAccountsWithTransactions(params.id)
+    const { id } = await params;
+
+    const accountData = await getAccountsWithTransactions(id);
 
     if (!accountData) {
         notFound();

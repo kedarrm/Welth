@@ -4,15 +4,20 @@ import React from 'react'
 import AddTransactionForm from '../_components/transaction-form';
 import { getTransaction } from '@/actions/transaction';
 
+export const metadata = {
+  title: "Welth | Add Transactions",
+  description: "One stop Finance Platform.",
+};
+
 
 const AddTansactionPage = async ({ searchParams}) => {
   const accounts = await getUserAccounts();
-
-  const editId = searchParams?.edit;
+  const params = await searchParams
+  const editId = params?.edit;
 
   let initialData = null;
-  if(editId){
-    const transaction = await getTransaction(editId)
+  if (editId) {
+    const transaction = await getTransaction(editId);
     initialData = transaction;
   }
   

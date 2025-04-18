@@ -290,7 +290,10 @@ const AddTransactionForm = ({
                     type="buttton"
                     variant="outline"
                     className="w-[50%] cursor-pointer"
-                    onClick={() => router.back()}
+                    onClick={() => {
+                        reset(); 
+                        router.back(); 
+                    }}
                 >
                     Cancel
                 </Button>
