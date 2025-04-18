@@ -88,12 +88,12 @@ const DashboardOverview = ({ accounts, transactions }) => {
                         value={selectedAccountId}
                         onValueChange={setSelectedAccountId}
                     >
-                        <SelectTrigger className="w-[170px]">
+                        <SelectTrigger className="w-[170px] cursor-pointer">
                             <SelectValue placeholder="Select account" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent >
                             {accounts.map((account) => (
-                                <SelectItem key={account.id} value={account.id}>
+                                <SelectItem key={account.id} value={account.id} className='cursor-pointer'>
                                     {account.name}
                                 </SelectItem>
                             ))}

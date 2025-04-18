@@ -79,12 +79,12 @@ const AccountChart = ({ transactions }) => {
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
                 <CardTitle className="text-base font-normal">Transcation Overview</CardTitle>
                 <Select dafaultValue={dateRange} onValueChange={setDateRange}>
-                    <SelectTrigger className="w-[140px]">
+                    <SelectTrigger className="w-[140px] cursor-pointer">
                         <SelectValue placeholder="Select Range" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent >
                         {Object.entries(DATE_RANGES).map(([key, { label }]) => (
-                            <SelectItem key={key} value={key}>
+                            <SelectItem key={key} value={key} className='cursor-pointer'>
                                 {label}
                             </SelectItem>
                         ))}

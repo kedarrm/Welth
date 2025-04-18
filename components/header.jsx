@@ -17,19 +17,19 @@ const Header = async () => {
                         alt="Welth Logo"
                         width={200}
                         height={60}
-                        className="h-12 w-auto object-contain"
+                        className="h-16 w-auto object-contain"
                     />
                 </Link>
 
                 {/* Navigation Links - Different for signed in/out users */}
                 <div className="hidden md:flex items-center space-x-8">
                     <SignedOut>
-                        <a href="#features" className="text-gray-600 hover:text-blue-600">
+                        <a href="#features" className="text-gray-600 hover:text-blue-600 cursor-pointer">
                             Features
                         </a>
                         <a
                             href="#testimonials"
-                            className="text-gray-600 hover:text-blue-600"
+                            className="text-gray-600 hover:text-blue-600 cursor-pointer"
                         >
                             Testimonials
                         </a>
@@ -43,13 +43,13 @@ const Header = async () => {
                             href="/dashboard"
                             className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
                         >
-                            <Button variant="outline">
+                            <Button variant="outline" className='cursor-pointer'>
                                 <LayoutDashboard size={18} />
                                 <span className="hidden md:inline">Dashboard</span>
                             </Button>
                         </Link>
                         <a href="/transaction/create">
-                            <Button className="flex items-center gap-2">
+                            <Button className="flex items-center gap-2 cursor-pointer">
                                 <PenBox size={18} />
                                 <span className="hidden md:inline">Add Transaction</span>
                             </Button>
@@ -57,7 +57,7 @@ const Header = async () => {
                     </SignedIn>
                     <SignedOut>
                         <SignInButton forceRedirectUrl="/dashboard">
-                            <Button variant="outline">Login</Button>
+                            <Button variant="outline" className='cursor-pointer'>Login</Button>
                         </SignInButton>
                     </SignedOut>
                     <SignedIn>

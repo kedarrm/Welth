@@ -229,28 +229,28 @@ const TransactionTable = ({ transactions }) => {
 
                 <div className='flex gap-2'>
                     <Select value={typeFilter} onValueChange={setTypeFilter}>
-                        <SelectTrigger>
+                        <SelectTrigger className='cursor-pointer'>
                             <SelectValue placeholder="All Types" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="INCOME">Income</SelectItem>
-                            <SelectItem value="EXPENSE">Expense</SelectItem>
+                            <SelectItem className='cursor-pointer' value="INCOME">Income</SelectItem>
+                            <SelectItem className='cursor-pointer' value="EXPENSE">Expense</SelectItem>
                         </SelectContent>
                     </Select>
 
                     <Select value={recurringFilter} onValueChange={(value) => setRecurringFilter(value)}>
-                        <SelectTrigger className="w-[155px]">
+                        <SelectTrigger className="w-[155px] cursor-pointer">
                             <SelectValue placeholder="All Transactions" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="recurring">Recurring Only</SelectItem>
-                            <SelectItem value="non-recurring">Non-Recurring Only</SelectItem>
+                            <SelectItem value="recurring" className='cursor-pointer'>Recurring Only</SelectItem>
+                            <SelectItem value="non-recurring" className='cursor-pointer'>Non-Recurring Only</SelectItem>
                         </SelectContent>
                     </Select>
 
                     {selectedIds.length > 0 && (
                         <div className='flex items-center gap-2'>
-                            <Button variant="destructive" size="sm" onClick={handleBulkDelete}>
+                            <Button variant="destructive" size="sm" onClick={handleBulkDelete} className='cursor-pointer'>
                                 <Trash className='h-4 w-4 m-2' />
                                 Delete Selected ({selectedIds.length})
                             </Button>

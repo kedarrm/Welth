@@ -38,13 +38,13 @@ const HeroSection = () => {
                 </p>
                 <div className="flex justify-center space-x-4">
                     <Link href='/dashboard'>
-                        <Button size='lg' className="px-8">
+                        <Button size='lg' className="px-8 cursor-pointer">
                             Get Started
                         </Button>
                     </Link>
-                    <Link href='https://www.youtube.com/watch?v=egS6fnZAdzk&t=2457s'>
-                        <Button size='lg' variant="outline" className="px-8">
-                            Watch Demo
+                    <Link href='/transaction/create'>
+                        <Button size='lg' variant="outline" className="px-8 cursor-pointer">
+                            Add Transaction
                         </Button>
                     </Link>
                 </div>

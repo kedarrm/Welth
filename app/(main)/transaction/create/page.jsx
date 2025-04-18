@@ -4,11 +4,11 @@ import React from 'react'
 import AddTransactionForm from '../_components/transaction-form';
 import { getTransaction } from '@/actions/transaction';
 
+
 const AddTansactionPage = async ({ searchParams}) => {
   const accounts = await getUserAccounts();
 
   const editId = searchParams?.edit;
-
 
   let initialData = null;
   if(editId){

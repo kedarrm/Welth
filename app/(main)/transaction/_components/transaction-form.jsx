@@ -128,17 +128,17 @@ const AddTransactionForm = ({
             {!editMode && <ReceiptScanner onScanComplete={handleScanComplete} />}
 
             <div className='space-y-2'>
-                <label className='test-sm font-medium'>Type</label>
+                <label className='test-sm font-medium '>Type</label>
                 <Select
                     onValueChange={(value) => setValue("type", value)}
                     defaultValue={type}
                 >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full cursor-pointer">
                         <SelectValue placeholder="Select Type" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="EXPENSE">Expense</SelectItem>
-                        <SelectItem value="INCOME">Income</SelectItem>
+                        <SelectItem value="EXPENSE" className='cursor-pointer'>Expense</SelectItem>
+                        <SelectItem value="INCOME" className='cursor-pointer'>Income</SelectItem>
                     </SelectContent>
                 </Select>
 
@@ -168,17 +168,17 @@ const AddTransactionForm = ({
                         onValueChange={(value) => setValue("accountId", value)}
                         defaultValue={getValues("accountId")}
                     >
-                        <SelectTrigger className="w-full" >
+                        <SelectTrigger className="w-full cursor-pointer" >
                             <SelectValue placeholder="Select Account" />
                         </SelectTrigger>
                         <SelectContent>
                             {accounts.map((account) => (
-                                <SelectItem key={account.id} value={account.id}>
+                                <SelectItem key={account.id} value={account.id} className='cursor-pointer'>
                                     {account.name} (${parseFloat(account.balance).toFixed(2)})
                                 </SelectItem>
                             ))}
                             <CreateAccountDrawer>
-                                <Button variant="ghost" className="w-full text-sm outline select-none items-center">Create Account</Button>
+                                <Button variant="ghost" className="w-full text-sm outline select-none items-center cursor-pointer">Create Account</Button>
                             </CreateAccountDrawer>
                         </SelectContent>
                     </Select>
@@ -193,14 +193,14 @@ const AddTransactionForm = ({
                 <label className='test-sm font-medium'>Category</label>
                 <Select
                     onValueChange={(value) => setValue("category", value)}
-                    defaultValue={getValues("category")}
+                    defaultValue={getValues("category")} 
                 >
-                    <SelectTrigger className="w-full" >
+                    <SelectTrigger className="w-full cursor-pointer" >
                         <SelectValue placeholder="Select Category" />
                     </SelectTrigger>
                     <SelectContent>
                         {filteredCategories.map((category) => (
-                            <SelectItem key={category.id} value={category.id}>
+                            <SelectItem key={category.id} value={category.id} className='cursor-pointer'>
                                 {category.name}
                             </SelectItem>
                         ))}
@@ -216,13 +216,13 @@ const AddTransactionForm = ({
                 <label className='test-sm font-medium'>Date</label>
                 <Popover>
                     <PopoverTrigger asChild>
-                        <Button variant='outline' className='w-full pl-3 text-left font-normal'>
+                        <Button variant='outline' className='w-full pl-3 text-left font-normal cursor-pointer'>
                             {date ? format(date, "PPP") : <span>Pick a Date</span>}
                             <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent className='w-auto p-0' align='start'>
-                        <Calendar mode="single" selected={date}
+                    <PopoverContent className='w-auto p-0 cursor-pointer' align='start'>
+                        <Calendar mode="single" selected={date} 
                             onSelect={(date) => setValue("date", date)}
                             disabled={(date) =>
                                 date > new Date() || date < new Date("1900-01-01")
@@ -255,7 +255,7 @@ const AddTransactionForm = ({
                         Set up a Recurring schedule for this transactions
                     </p>
                 </div>
-                <Switch
+                <Switch className='cursor-pointer'
                     checked={isRecurring}
                     onCheckedChange={(checked) => setValue("isRecurring", checked)}
                 />
@@ -268,14 +268,14 @@ const AddTransactionForm = ({
                         onValueChange={(value) => setValue("recurringInterval", value)}
                         defaultValue={getValues("recurringInterval")}
                     >
-                        <SelectTrigger className="w-full" >
+                        <SelectTrigger className="w-full cursor-pointer" >
                             <SelectValue placeholder="Select Interval" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="DAILY">Daily</SelectItem>
-                            <SelectItem value="WEEKLY">Weekly</SelectItem>
-                            <SelectItem value="MONTHLY">Monthly</SelectItem>
-                            <SelectItem value="YEARLY">Yearly</SelectItem>
+                            <SelectItem value="DAILY" className='cursor-pointer'>Daily</SelectItem>
+                            <SelectItem value="WEEKLY" className='cursor-pointer'>Weekly</SelectItem>
+                            <SelectItem value="MONTHLY" className='cursor-pointer'>Monthly</SelectItem>
+                            <SelectItem value="YEARLY" className='cursor-pointer'>Yearly</SelectItem>
                         </SelectContent>
                     </Select>
 
@@ -289,14 +289,14 @@ const AddTransactionForm = ({
                 <Button
                     type="buttton"
                     variant="outline"
-                    className="w-[50%]"
+                    className="w-[50%] cursor-pointer"
                     onClick={() => router.back()}
                 >
                     Cancel
                 </Button>
                 <Button
                     type="submit"
-                    className="w-[50%]"
+                    className="w-[50%] cursor-pointer"
                     disabled={transactionLoading}
                 >
                     {transactionLoading ? (
