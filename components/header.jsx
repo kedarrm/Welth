@@ -19,14 +19,14 @@ const Header = async () => {
                             alt="Welth Logo"
                             width={100}
                             height={30}
-                            className="h-8 w-auto object-contain md:hidden" // Mobile screen size (hidden on md and up)
+                            className="h-8 w-auto object-contain md:hidden" 
                         />
                         <Image
                             src={"/logo.png"} // Desktop logo
                             alt="Welth Logo"
                             width={200}
                             height={60}
-                            className="h-16 w-auto object-contain hidden md:inline" // Desktop screen size (hidden on mobile)
+                            className="h-16 w-auto object-contain hidden md:inline" 
                         />
                     </div>
                 </Link>
@@ -38,7 +38,7 @@ const Header = async () => {
                             Features
                         </a>
                         <a
-                            href="#testimonials"
+                            href="/testimonials"
                             className="text-gray-600 hover:text-blue-600 cursor-pointer"
                         >
                             Testimonials

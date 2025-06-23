@@ -1,81 +1,121 @@
 "use client"
 
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { PieChart, Pie, Cell, Tooltip, BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+"use client";
+import React, { useEffect, useState } from "react";
 
-const budgetData = [
-  { name: "Used", value: 75 },
-  { name: "Remaining", value: 25 }
-];
+function MainComponent() {
+  const [isLoading, setIsLoading] = useState(true);
 
-const COLORS = ["#FF6B6B", "#4ECDC4"];
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
-const transactionData = [
-  { name: "Jan", expense: 400 },
-  { name: "Feb", expense: 300 },
-  { name: "Mar", expense: 500 },
-  { name: "Apr", expense: 200 }
-];
+  const features = [
+    {
+      title: "Dashboard Analytics",
+      description:
+        "Get a comprehensive view of your finances with real-time analytics and interactive charts.",
+      icon: "fa-solid fa-chart-line",
+      color: "bg-[#6366F1] dark:bg-[#818CF8]",
+      textColor: "text-[#6366F1] dark:text-[#818CF8]",
+    },
+    {
+      title: "Account Management",
+      description:
+        "Seamlessly manage multiple accounts and track your balances in one place.",
+      icon: "fa-solid fa-wallet",
+      color: "bg-[#EC4899] dark:bg-[#F472B6]",
+      textColor: "text-[#EC4899] dark:text-[#F472B6]",
+    },
+    {
+      title: "Transaction Tracking",
+      description:
+        "Monitor all your transactions with smart categorization and detailed insights.",
+      icon: "fa-solid fa-receipt",
+      color: "bg-[#10B981] dark:bg-[#34D399]",
+      textColor: "text-[#10B981] dark:text-[#34D399]",
+    },
+    {
+      title: "Budget Planning",
+      description:
+        "Set and track budgets with intelligent alerts and spending recommendations.",
+      icon: "fa-solid fa-piggy-bank",
+      color: "bg-[#F59E0B] dark:bg-[#FBBF24]",
+      textColor: "text-[#F59E0B] dark:text-[#FBBF24]",
+    },
+    {
+      title: "Receipt Scanner",
+      description:
+        "Instantly digitize receipts with our smart scanning technology and automatic categorization.",
+      icon: "fa-solid fa-camera",
+      color: "bg-[#8B5CF6] dark:bg-[#A78BFA]",
+      textColor: "text-[#8B5CF6] dark:text-[#A78BFA]",
+    },
+  ];
 
-const Featurescard = () => {
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-gray-900 p-6 md:p-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="animate-pulse space-y-8">
+            <div className="h-12 bg-gray-200 dark:bg-gray-800 rounded-lg w-3/4"></div>
+            <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded-lg w-1/2"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  className="h-64 bg-gray-200 dark:bg-gray-800 rounded-2xl"
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="p-4 md:p-8 lg:p-12 max-w-7xl mx-auto space-y-8">
-      <h1 className="text-3xl font-bold text-center">WELTH - AI Finance Tracker</h1>
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-6 md:p-12">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white font-inter mb-4">
+          Powerful Features
+        </h1>
+        <p className="text-xl text-gray-700 dark:text-gray-300 font-inter mb-12">
+          Everything you need to take control of your finances
+        </p>
 
-      {/* Dashboard */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card className="p-4">
-          <h2 className="text-xl font-semibold mb-4">Monthly Budget Tracker</h2>
-          <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-              <Pie data={budgetData} dataKey="value" outerRadius={80} label>
-                {budgetData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </Card>
-
-        <Card className="p-4">
-          <h2 className="text-xl font-semibold mb-4">Monthly Expenses Overview</h2>
-          <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={transactionData}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="expense" fill="#6366F1" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="group bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                className={`${feature.color} w-12 h-12 rounded-xl flex items-center justify-center mb-6`}
+              >
+                <i className={`${feature.icon} text-white text-xl`}></i>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white font-inter mb-4">
+                {feature.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 font-inter">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
-
-      {/* Features */}
-      <Card>
-        <CardContent className="p-4 space-y-4">
-          <h2 className="text-2xl font-semibold">Key Features</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700">
-            <li>Email Authentication using Clerk with editable profile</li>
-            <li>Dashboard with Pie & Bar Charts for budget and expense tracking</li>
-            <li>Manage multiple accounts with default account support</li>
-            <li>Add/Edit/Delete transactions with filters, pagination, and recurring options</li>
-            <li>Scan receipts using Gemini AI to auto-fill transaction data</li>
-            <li>Rate limiting (10 txns/hr) and bot detection using Arcjet</li>
-            <li>Monthly AI-powered financial reports and budget alerts via email</li>
-            <li>Background task scheduling using Cron jobs and Inngest</li>
-          </ul>
-          <Link href='/sign-in'>
-            <Button className="mt-4 cursor-pointer">Login to Explore Features</Button>
-          </Link>
-        </CardContent>
-      </Card>
+      <style jsx global>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+      `}</style>
     </div>
-  )
+  );
 }
 
-export default Featurescard
+export default MainComponent;
