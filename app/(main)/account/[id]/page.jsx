@@ -1,3 +1,5 @@
+"use client"
+
 import { getAccountsWithTransactions } from '@/actions/accounts'
 import { notFound, useParams } from 'next/navigation'
 import React, { Suspense } from 'react'
