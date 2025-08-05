@@ -50,7 +50,7 @@ const Header = async () => {
                 {/* Action Buttons */}
                 <div className="flex items-center space-x-4">
                     <SignedIn>
-                <ModeToggle />
+                {/* <ModeToggle /> */}
                         <Link
                             href="/dashboard"
                             className="text-gray-600 hover:text-blue-600 flex items-center gap-2"
