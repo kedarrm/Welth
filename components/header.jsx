@@ -11,7 +11,7 @@ const Header = async () => {
     await checkUser();
     return (
         <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
-            <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <nav className="container mx-auto px-2 py-2 flex items-center justify-between">
                 <Link href="/">
                 <div className="flex items-center">
                         <Image
@@ -22,7 +22,7 @@ const Header = async () => {
                             className="h-8 w-auto object-contain md:hidden" 
                         />
                         <Image
-                            src={"/logo.png"} // Desktop logo
+                            src={"/logo (3).png"} // Desktop logo
                             alt="Welth Logo"
                             width={200}
                             height={60}
