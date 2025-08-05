@@ -1,19 +1,17 @@
-"use client"
-
 import { getAccountsWithTransactions } from '@/actions/accounts'
-import { notFound, useParams } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import React, { Suspense } from 'react'
 import TransactionTable from '../_components/transaction-table'
 import { BarLoader } from 'react-spinners'
 import AccountChart from '../_components/account-chart'
 
-// export const metadata = {
-//     title: "Welth | Accounts",
-//     description: "One stop Finance Platform.",
-//   };
+export const metadata = {
+    title: "Welth | Accounts",
+    description: "One stop Finance Platform.",
+  };
 
-export default async function AccountPage() {
-    const params = useParams();
+export default async function AccountPage({ params }) {
+    const { id } = await params;
 
     const accountData = await getAccountsWithTransactions(id);
 
