@@ -337,7 +337,7 @@ const TransactionTable = ({ transactions }) => {
                                 <TableRow key={transaction.id}>
                                     <TableCell>
                                         <Checkbox onCheckedChange={() => handleSelect(transaction.id)}
-                                            checked={selectedIds.includes(transaction.id)}
+                                            checked={selectedIds.includes(transaction.id)} className="cursor-pointer"
                                         />
                                     </TableCell>
                                     <TableCell>{format(new Date(transaction.date), "PP")}</TableCell>
@@ -387,7 +387,7 @@ const TransactionTable = ({ transactions }) => {
                                     <TableCell>
                                         <DropdownMenu>
                                             <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" className="h-8 p-0">
+                                                <Button variant="ghost" className="h-8 p-0 cursor-pointer">
                                                     <MoreHorizontal className='h-4 w-4' />
                                                 </Button>
                                             </DropdownMenuTrigger>
@@ -397,10 +397,11 @@ const TransactionTable = ({ transactions }) => {
                                                         router.push(
                                                             `/transaction/create?edit=${transaction.id}`
                                                         )}
+                                                        className="cursor-pointer"
                                                 >Edit
                                                 </DropdownMenuItem>
                                                 <DropdownMenuSeparator />
-                                                <DropdownMenuItem className="text-destructive"
+                                                <DropdownMenuItem className="text-destructive cursor-pointer"
                                                     onClick={() => deleteFn([transaction.id])}
                                                 >
                                                     Delete
