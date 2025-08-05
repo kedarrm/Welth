@@ -7,10 +7,10 @@ import TransactionTable from '../_components/transaction-table'
 import { BarLoader } from 'react-spinners'
 import AccountChart from '../_components/account-chart'
 
-export const metadata = {
-    title: "Welth | Accounts",
-    description: "One stop Finance Platform.",
-  };
+// export const metadata = {
+//     title: "Welth | Accounts",
+//     description: "One stop Finance Platform.",
+//   };
 
 export default async function AccountPage() {
     const params = useParams();
